@@ -18,11 +18,11 @@ namespace NationRegion.Migrations
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     ZipCode = table.Column<string>(unicode: false, maxLength: 16, nullable: true),
                     Level = table.Column<int>(nullable: false),
-                    IsGetChild = table.Column<bool>(nullable: false),
+                    IsGetChild = table.Column<bool>(nullable: false, defaultValue: false),
                     ChildNodeUrl = table.Column<string>(unicode: false, maxLength: 512, nullable: true),
                     Status = table.Column<int>(nullable: false),
                     IsDel = table.Column<bool>(nullable: false, defaultValue: false),
-                    CreationTime = table.Column<DateTime>(nullable: false)
+                    CreationTime = table.Column<DateTime>(nullable: false, defaultValueSql: "datetime('now')")
                 },
                 constraints: table =>
                 {

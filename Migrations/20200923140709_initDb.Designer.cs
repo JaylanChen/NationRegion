@@ -37,7 +37,8 @@ namespace NationRegion.Migrations
 
                     b.Property<DateTime>("CreationTime")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasDefaultValueSql("datetime('now')");
 
                     b.Property<bool>("IsDel")
                         .ValueGeneratedOnAdd()
@@ -45,7 +46,9 @@ namespace NationRegion.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<bool>("IsGetChild")
-                        .HasColumnType("INTEGER");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(false);
 
                     b.Property<int>("Level")
                         .HasColumnType("INTEGER");
